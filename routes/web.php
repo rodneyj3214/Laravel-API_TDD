@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PageControler;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,14 @@ use App\Http\Controllers\UserController;
 Route::get('/', [UserController::class, 'index']);
 Route::post('users', [UserController::class, 'store'])->name('users.store');
 Route::delete('users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+
+Route::resource('pages', UserController::class); // Genera el crud
+/* Vistas estaticas 
+
+Route::view('vista','welcome');
+
+Route::get('test', function () {
+    return 'Rodeny';
+});
+
+*/
