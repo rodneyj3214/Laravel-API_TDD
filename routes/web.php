@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\PageControler;
 
 /*
@@ -21,8 +22,11 @@ Route::delete('users/{user}', [UserController::class, 'destroy'])->name('users.d
 
 Route::resource('pages', UserController::class); // Genera el crud
 
-Route::view('vista','welcome')->middleware('auth');
+Route::view('vista','welcome');
 
 Route::get('test', function () {
     return 'Rodeny';
 });
+
+Route::view('viewpost','post');
+Route::post('posts', [PostController::class, 'store'])->name('posts.store');
