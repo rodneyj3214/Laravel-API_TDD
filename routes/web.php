@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PageControler;
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,5 +36,17 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
+
+Route::get('eloquent', function () {
+    //$posts = Post::all();
+    $posts = Post::where('id','>=','5')
+        ->orderBy('id', 'desc')
+        ->take(3)
+        ->get();
+    foreach($posts as $post){
+        echo "$post->id $post->title <br>";
+
+    };
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
