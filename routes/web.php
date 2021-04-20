@@ -20,12 +20,9 @@ Route::post('users', [UserController::class, 'store'])->name('users.store');
 Route::delete('users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 
 Route::resource('pages', UserController::class); // Genera el crud
-/* Vistas estaticas 
 
-Route::view('vista','welcome');
+Route::view('vista','welcome')->middleware('auth');
 
 Route::get('test', function () {
     return 'Rodeny';
 });
-
-*/

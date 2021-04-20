@@ -7,6 +7,11 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    /* Autenticar desde el controlador
+    public function __construct(Type $var = null) {
+        $this->var = $var;
+    }
+    */
     public function index(){
         $users = User::latest()->get();
         return view('users.index' ,['users' => $users]);
