@@ -27,6 +27,6 @@ Route::view('vista','welcome');
 Route::get('test', function () {
     return 'Rodeny';
 });
-
+Route::view('home','home');
 Route::view('viewpost','post');
 Route::post('posts', [PostController::class, 'store'])->name('posts.store');
