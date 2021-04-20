@@ -30,3 +30,10 @@ Route::get('test', function () {
 Route::view('home','home');
 Route::view('viewpost','post');
 Route::post('posts', [PostController::class, 'store'])->name('posts.store');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
