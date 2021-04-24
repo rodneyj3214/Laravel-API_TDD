@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PageControler;
 use App\Models\Post;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,24 @@ Route::get('eloquent', function () {
         ->get();
     foreach($posts as $post){
         echo "$post->id $post->title <br>";
+
+    };
+});
+
+Route::get('postsdata', function () {
+    $posts = Post::get();
+    
+    foreach($posts as $post){
+        echo "$post->id <strong>{$post->user->name }</strong> $post->title <br>";
+
+    };
+});
+
+Route::get('users', function () {
+    $users = User::get();
+    
+    foreach($users as $user){
+        echo "$user->id <strong>{$user->name }</strong> {$user->posts->count()} <br>";
 
     };
 });
