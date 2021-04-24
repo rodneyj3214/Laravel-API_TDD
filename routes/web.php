@@ -67,5 +67,14 @@ Route::get('users', function () {
 
     };
 });
+Route::get('collections', function () {
+    $users = User::get();
+    //dd($users);
+    //dd($users->contains(5));
+    //dd($users->except([1,2,3,4]));
+    //dd($users->only(4));
+    //dd($users->find(4));
+    dd($users->load('posts'));
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
