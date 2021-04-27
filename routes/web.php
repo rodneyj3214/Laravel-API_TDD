@@ -54,7 +54,7 @@ Route::get('postsdata', function () {
     $posts = Post::get();
     
     foreach($posts as $post){
-        echo "$post->id <strong>{$post->user->name }</strong> $post->title <br>";
+        echo "$post->id <strong>{$post->user->name }</strong> $post->get_title <br>";
 
     };
 });
@@ -63,7 +63,7 @@ Route::get('users', function () {
     $users = User::get();
     
     foreach($users as $user){
-        echo "$user->id <strong>{$user->name }</strong> {$user->posts->count()} <br>";
+        echo "$user->id <strong>{$user->get_name }</strong> {$user->posts->count()} <br>";
 
     };
 });

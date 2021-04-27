@@ -45,4 +45,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::Class);
     }
+    public function getGetNameAttribute()
+    {
+        return strtoupper($this->name);
+    }
+    public function setNameAttribute($value)
+    {
+        return $this->attributes['name'] = strtolower($value);
+    }
 }
