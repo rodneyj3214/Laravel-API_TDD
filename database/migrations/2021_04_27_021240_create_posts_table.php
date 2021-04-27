@@ -14,7 +14,16 @@ class CreatePostsTable extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+
+            $table->foreignId('user_id')->constrained('users');
+
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->string('image')->nullable();
+            $table->text('body');
+            $table->text('iframe')->nullable();
+
             $table->timestamps();
         });
     }
