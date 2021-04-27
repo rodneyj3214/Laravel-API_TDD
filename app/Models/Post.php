@@ -3,22 +3,20 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Cviebrack\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
     use HasFactory;
+    use Sluggable;
 
-    public function user()
+    public function sluggable()
     {
-        return $this->belongsTo(User::Class);
-    }
-    public function getGetTitleAttribute()
-    {
-        return strtoupper($this->title);
-    }
-    public function setTitleAttribute($value)
-    {
-        return $this->attributes['title'] = strtolower($value);
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
     }
 }
