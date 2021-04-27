@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Cviebrack\EloquentSluggable\Sluggable;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -19,5 +19,9 @@ class Post extends Model
                 'onUpdate' => true
             ]
         ];
+    }
+    public function user()
+    {
+        return $this->belongsTo( User::class);
     }
 }
